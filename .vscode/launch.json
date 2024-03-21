@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/pabloseijo/Documents/Curso2023-2024/2Cuatrimestre/SOII/Practica2",
+      "program": "/Users/pabloseijo/Documents/Curso2023-2024/2Cuatrimestre/SOII/Practica2/build/Debug/outDebug"
+    }
+  ]
+}
