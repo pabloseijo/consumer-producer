@@ -6,12 +6,12 @@
 #include <fcntl.h>
 #include <time.h>
 
-#define N 8 // Ajustando el tamaño del buffer a 8
+#define N 8
 
 int *buffer;
 
 int produce_item() {
-    return rand() % 11; // Genera un entero aleatorio entre 0 y 10
+    return rand() % 11; // Corrección para generar un entero aleatorio entre 0 y 10
 }
 
 void insert_item(int item) {
@@ -21,27 +21,24 @@ void insert_item(int item) {
 }
 
 int main() {
-    int item, fich, sl=0;
-    srand(time(NULL)); // Inicialización del generador de números aleatorios
+    int item, fich;
+    srand(time(NULL));
 
-    // Manejo del archivo del buffer
-    if ((fich=open("buffer", O_RDWR|O_CREAT, S_IRWXU|S_IRWXG|S_IRWXO)) == -1) {
+    if ((fich = open("buffer", O_RDWR|O_CREAT|O_TRUNC, S_IRWXU|S_IRWXG|S_IROTH)) == -1) {
         perror("ERROR: open");
         exit(EXIT_FAILURE);
     }
 
-    // Ajuste del tamaño del archivo
     ftruncate(fich, (N+1)*sizeof(int));
 
-    // Mapeo de memoria
-    if ((buffer=mmap(NULL, (N+1)*sizeof(int), PROT_WRITE|PROT_READ, MAP_SHARED, fich, 0)) == MAP_FAILED) {
+    buffer = mmap(NULL, (N+1)*sizeof(int), PROT_WRITE|PROT_READ, MAP_SHARED, fich, 0);
+    if (buffer == MAP_FAILED) {
         perror("ERROR: mmap");
         exit(EXIT_FAILURE);
     }
 
-    buffer[N] = N; // Inicialización del contador de elementos en el buffer
+    buffer[N] = N;
 
-    // Inicialización de semáforos
     sem_unlink("VACIAS");
     sem_unlink("LLENAS");
     sem_unlink("MUTEX");
@@ -60,12 +57,15 @@ int main() {
         sem_post(mutex);
         sem_post(llenas);
 
-        sleep(rand() % 4); // Espera aleatoria entre 0 y 3 segundos
+        sleep(rand() % 4);
+        sleep(2);
     }
 
-    // Limpieza
     munmap(buffer, (N+1)*sizeof(int));
     close(fich);
+    sem_close(vacias);
+    sem_close(llenas);
+    sem_close(mutex);
     sem_unlink("VACIAS");
     sem_unlink("LLENAS");
     sem_unlink("MUTEX");

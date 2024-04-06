@@ -44,7 +44,14 @@ int main(){
 	
     //Metemos la espera activa tal que mientras el buffer esté lleno, el productor no pueda producir
 	for(i=0; i<100; i++){
-		while(buffer[N]==N);	
+
+		if(buffer[N]==N){
+			printf("Buffer lleno, el proceso se va a dormir\n");
+			while(buffer[N]==N);
+		}
+
+		sleep(15); //Simulamos un tiempo de espera para la carrera
+		
 		//item=produce_item();
 		insert_item(i);
 	}

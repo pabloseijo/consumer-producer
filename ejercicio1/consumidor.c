@@ -45,7 +45,11 @@ int main(){
 		
     // Metemos la espera activa tal que mientras el buffer esté vacío, el consumidor no pueda consumir
 	for(i = 0; i < 100; ++i){
-		while(buffer[N] == 0);
+        if(buffer[N] == 0){
+            printf("Buffer vacio, el proceso se va a dormir\n");
+		    while(buffer[N] == 0);
+        }
+
 		consume_item();
 	}
 	
@@ -78,6 +82,7 @@ void consume_item() {
 
         // Introducimos un retardo aleatorio para simular el tiempo de consumo
         sleep(rand() % 5);
+        sleep(15); // Para probar el caso en que el buffer se llena y el productor se duerme
 
         int posConsumido = buffer[N];
         int consumido = buffer[posConsumido];
@@ -88,7 +93,7 @@ void consume_item() {
         // Imprimir información del elemento consumido
         printf("Valor %d consumido (Posicion: %d)\n", consumido, posConsumido);
 
-    } else printf("No hay elementos para consumir.\n");
+    } 
 }
 
 
