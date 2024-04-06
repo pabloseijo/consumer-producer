@@ -76,6 +76,23 @@ Teniendo en cuenta que una carrera crítica se refiere a un sistema donde su com
 
 \section{Ejercicio 2}
 
+La salida del programa es la siguiente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ejercicio2/consumidor.jpg}
+    \caption{Salida del programa de consumidor} 
+    \label{fig:my_label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ejercicio2/productor.jpg}
+    \caption{Salida del programa de productor} 
+    \label{fig:my_label}
+\end{figure}
+
+
 En este ejercicio se ha implementado una solución al problema del productor-consumidor utilizando memoria compartida y semáforos para gestionar el acceso concurrente a un buffer. Este buffer es de tipo entero (\texttt{int}) y funciona como una pila LIFO (Last In, First Out), donde el último elemento insertado es el primero en ser retirado. La implementación se ha realizado siguiendo estos criterios:
 
 \begin{itemize}
@@ -98,7 +115,6 @@ Para evitar la interrupción del programa en cada ejecución y permitir la obser
 Finalmente, para asegurar la limpieza y evitar que los semáforos permanezcan activos en el kernel después de la ejecución, se utilizan las funciones \texttt{sem\_close()} y \texttt{sem\_unlink()} al final del programa.
 
 Esta solución demuestra la efectividad de los semáforos para gestionar la sincronización en problemas de concurrencia, permitiendo un control detallado sobre el acceso a recursos compartidos y evitando condiciones de carrera, mientras se mantiene una secuencia ordenada y predecible de operaciones de producción y consumo.
-
 
 \section{Resultados}
 \lipsum[5-6] % Texto de prueba

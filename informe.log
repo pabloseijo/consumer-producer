@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  6 APR 2024 13:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  6 APR 2024 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -99,6 +99,12 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 ) (./informe.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
 
 
 LaTeX Warning: Label `fig:my_label' multiply defined.
@@ -211,26 +217,45 @@ Overfull \hbox (5.0pt too wide) in paragraph at lines 58--59
  [][] 
  []
 
+<ejercicio2/consumidor.jpg, id=16, 1893.0725pt x 220.825pt>
+File: ejercicio2/consumidor.jpg Graphic file (type jpg)
+<use ejercicio2/consumidor.jpg>
+Package pdftex.def Info: ejercicio2/consumidor.jpg  used on input line 83.
+(pdftex.def)             Requested size: 234.5pt x 27.3537pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 83--84
+ [][] 
+ []
+
+<ejercicio2/productor.jpg, id=17, 1282.7925pt x 299.1175pt>
+File: ejercicio2/productor.jpg Graphic file (type jpg)
+<use ejercicio2/productor.jpg>
+Package pdftex.def Info: ejercicio2/productor.jpg  used on input line 90.
+(pdftex.def)             Requested size: 234.5pt x 54.67862pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 90--91
+ [][] 
+ []
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 82.
+(Font)              <7> on input line 99.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 82.
-[2 <./ejercicio1/consumidorSleep.png> <./ejercicio1/consumidorCarrera.jpg>]
-Underfull \hbox (badness 1259) in paragraph at lines 100--101
+(Font)              <5> on input line 99.
+[2 <./ejercicio1/consumidorSleep.png> <./ejercicio1/consumidorCarrera.jpg> <./e
+jercicio2/consumidor.jpg> <./ejercicio2/productor.jpg>]
+Underfull \hbox (badness 1259) in paragraph at lines 117--118
 []\OT1/cmr/m/n/10 Esta so-lu-ci^^Son de-mues-tra la efec-ti-vi-dad de los
  []
 
 ! Undefined control sequence.
-l.104 \lipsum
+l.120 \lipsum
              [5-6] % Texto de prueba
 ? 
 ! Undefined control sequence.
-l.107 \lipsum
+l.123 \lipsum
              [7-8] % Texto de prueba
 ? 
-[3
-
-] (./informe.aux
+[3] (./informe.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -239,10 +264,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2830 strings out of 477476
- 47691 string characters out of 5824243
- 1863388 words of memory out of 5000000
- 23078 multiletter control sequences out of 15000+600000
+ 2845 strings out of 477476
+ 48085 string characters out of 5824243
+ 1860388 words of memory out of 5000000
+ 23090 multiletter control sequences out of 15000+600000
  516402 words of font info for 46 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  57i,8n,62p,624b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -253,10 +278,10 @@ cm/cmr10.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr12.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr17.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmtt10.pfb>
-Output written on informe.pdf (3 pages, 426540 bytes).
+Output written on informe.pdf (3 pages, 616252 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
+ 53 PDF objects out of 1000 (max. 8388607)
  27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
