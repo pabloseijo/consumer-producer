@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  6 APR 2024 20:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  7 APR 2024 12:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -247,15 +247,26 @@ Underfull \hbox (badness 1259) in paragraph at lines 117--118
 []\OT1/cmr/m/n/10 Esta so-lu-ci^^Son de-mues-tra la efec-ti-vi-dad de los
  []
 
+<ejercicio3/salidaHilos.jpg, id=24, 1304.875pt x 495.8525pt>
+File: ejercicio3/salidaHilos.jpg Graphic file (type jpg)
+<use ejercicio3/salidaHilos.jpg>
+Package pdftex.def Info: ejercicio3/salidaHilos.jpg  used on input line 125.
+(pdftex.def)             Requested size: 234.5pt x 89.10583pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 125--126
+ [][] 
+ []
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 137.
+[3 <./ejercicio3/salidaHilos.jpg>]
 ! Undefined control sequence.
-l.120 \lipsum
-             [5-6] % Texto de prueba
-? 
-! Undefined control sequence.
-l.123 \lipsum
+l.155 \lipsum
              [7-8] % Texto de prueba
 ? 
-[3] (./informe.aux
+[4
+
+] (./informe.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -264,11 +275,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2845 strings out of 477476
- 48085 string characters out of 5824243
- 1860388 words of memory out of 5000000
- 23090 multiletter control sequences out of 15000+600000
- 516402 words of font info for 46 fonts, out of 8000000 for 9000
+ 2856 strings out of 477476
+ 48335 string characters out of 5824243
+ 1864388 words of memory out of 5000000
+ 23098 multiletter control sequences out of 15000+600000
+ 516710 words of font info for 47 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  57i,8n,62p,624b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
@@ -278,10 +289,10 @@ cm/cmr10.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr12.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr17.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmtt10.pfb>
-Output written on informe.pdf (3 pages, 616252 bytes).
+Output written on informe.pdf (4 pages, 745138 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 29 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

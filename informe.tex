@@ -6,8 +6,8 @@
 \usepackage{graphicx} % Paquete para incluir imágenes
 \usepackage{float} % Paquete para posicionar figuras
 
-\title{Título del informe}
-\author{Tu nombre}
+\title{Práctica 2: Sincronización de procesos con semáforos}
+\author{Pedro y Pablo Seijo}
 \date{\today}
 
 \begin{document}
@@ -116,8 +116,40 @@ Finalmente, para asegurar la limpieza y evitar que los semáforos permanezcan ac
 
 Esta solución demuestra la efectividad de los semáforos para gestionar la sincronización en problemas de concurrencia, permitiendo un control detallado sobre el acceso a recursos compartidos y evitando condiciones de carrera, mientras se mantiene una secuencia ordenada y predecible de operaciones de producción y consumo.
 
-\section{Resultados}
-\lipsum[5-6] % Texto de prueba
+\section{Ejercicio 3}
+
+Ahora se cambia la implementación para utilizar hilos en lugar de procesos. La salida del programa es la siguiente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ejercicio3/salidaHilos.jpg}
+    \caption{Salida del programa con hilos} 
+    \label{fig:my_label}
+\end{figure}
+
+\subsection{Definición y Variables Globales}
+
+El tamaño del buffer se define como $N = 8$, utilizando un arreglo de enteros para simular el buffer. Los semáforos \texttt{vacias}, \texttt{llenas}, y \texttt{mutex} se utilizan para controlar el número de posiciones vacías, el número de posiciones llenas, y asegurar el acceso exclusivo al buffer, respectivamente.
+
+\subsection{Funciones Clave}
+
+\begin{itemize}
+    \item \textbf{\texttt{produce\_item()}}: Genera un elemento aleatorio entre 0 y 10.
+    \item \textbf{\texttt{insert\_item(int item)}}: Inserta un elemento en el buffer según la política LIFO, decrementando previamente el índice del buffer.
+    \item \textbf{\texttt{remove\_item()}}: Elimina un elemento del buffer e imprime el elemento consumido junto con la suma de los valores actuales en el buffer.
+\end{itemize}
+
+\subsection{Hilos y Sincronización}
+
+La implementación utiliza dos tipos de hilos: productores y consumidores. Cada productor genera elementos aleatorios y los inserta en el buffer, mientras que cada consumidor retira elementos del buffer. La sincronización se logra mediante el uso de semáforos, donde:
+
+\begin{itemize}
+    \item Los semáforos \texttt{vacias} y \texttt{llenas} gestionan el número de posiciones vacías y llenas en el buffer, respectivamente.
+    \item El semáforo \texttt{mutex} asegura el acceso exclusivo al buffer para insertar o remover elementos.
+\end{itemize}
+
+Los hilos productores esperan que haya posiciones vacías para producir, mientras que los consumidores esperan que el buffer contenga elementos para consumir. Esto asegura que no se produzcan condiciones de carrera y que el acceso al buffer sea seguro y ordenado.
+
 
 \section{Conclusiones}
 \lipsum[7-8] % Texto de prueba
