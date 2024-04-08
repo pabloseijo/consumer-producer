@@ -50,7 +50,7 @@ int main(){
 			while(buffer[N]==N);
 		}
 
-		sleep(15); //Simulamos un tiempo de espera para la carrera
+		//sleep(15); //Simulamos un tiempo de espera para la carrera
 		
 		//item=produce_item();
 		insert_item(i);

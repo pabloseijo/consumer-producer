@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-#define N 8 // Aseguramos que N sea 8, conforme a las instrucciones
+#define N 8 // Tamaño del buffer
 
 int *buffer;
 

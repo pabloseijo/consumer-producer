@@ -127,18 +127,6 @@ Ahora se cambia la implementación para utilizar hilos en lugar de procesos. La 
     \label{fig:my_label}
 \end{figure}
 
-\subsection{Definición y Variables Globales}
-
-El tamaño del buffer se define como $N = 8$, utilizando un arreglo de enteros para simular el buffer. Los semáforos \texttt{vacias}, \texttt{llenas}, y \texttt{mutex} se utilizan para controlar el número de posiciones vacías, el número de posiciones llenas, y asegurar el acceso exclusivo al buffer, respectivamente.
-
-\subsection{Funciones Clave}
-
-\begin{itemize}
-    \item \textbf{\texttt{produce\_item()}}: Genera un elemento aleatorio entre 0 y 10.
-    \item \textbf{\texttt{insert\_item(int item)}}: Inserta un elemento en el buffer según la política LIFO, decrementando previamente el índice del buffer.
-    \item \textbf{\texttt{remove\_item()}}: Elimina un elemento del buffer e imprime el elemento consumido junto con la suma de los valores actuales en el buffer.
-\end{itemize}
-
 \subsection{Hilos y Sincronización}
 
 La implementación utiliza dos tipos de hilos: productores y consumidores. Cada productor genera elementos aleatorios y los inserta en el buffer, mientras que cada consumidor retira elementos del buffer. La sincronización se logra mediante el uso de semáforos, donde:
@@ -150,7 +138,30 @@ La implementación utiliza dos tipos de hilos: productores y consumidores. Cada 
 
 Los hilos productores esperan que haya posiciones vacías para producir, mientras que los consumidores esperan que el buffer contenga elementos para consumir. Esto asegura que no se produzcan condiciones de carrera y que el acceso al buffer sea seguro y ordenado.
 
+\subsection{Ejercicio 4}
 
+En este ejercicio deberemos implementar el problema del productor consumidor, con N posibles productores y M posibles consumidores. Para ello, se deberá modificar el código de la práctica 2 para que se puedan crear N productores y M consumidores. La salida del programa es la siguiente:
+
+nProductor.c con dos productores:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ejercicio4/productor2.jpg}
+    \caption{Salida del programa con 2 productores} 
+    \label{fig:my_label}
+\end{figure}
+
+nConsumidor.c con dos consumidores:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ejercicio4/consumidor2.jpg}
+    \caption{Salida del programa con 2 consumidores} 
+    \label{fig:my_label}
+\end{figure}
+
+En las imagenes podemos ver que se han creado dos productores y dos consumidores, y que el buffer se ha llenado y vaciado correctamente. Se podría gestionar mediante sleeps la velocidad de producción y de consumo de los elementos, y de hecho, en el código implementamos una desaceleración tal que si el buffer está casi lleno el productor pasa de un rand entre 0 y 4 a un rand entre 0 y 9. 
+
+Esta funcionalidad nos permite decrementar la velocidad de producción para que los consumidores puedan consumir los elementos antes de que el buffer se llene.
 \section{Conclusiones}
 \lipsum[7-8] % Texto de prueba
 

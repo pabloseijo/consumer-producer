@@ -19,7 +19,7 @@ void insert_item(int item);
 
 int main() {
 
-	int item, f, sl=0, j, cuenta;	
+	int item, f, bufferCasiVacio=0, j, cuenta;	
 	
 	printf("\nIntroduzca el numero de productores: ");
 	scanf( "%d", &cuenta);
@@ -79,14 +79,14 @@ int main() {
 			
 			//Si el buffer esta casi vacio, produce mas rapido
 			if(buffer[N] < 3){
-				sl = 0;
+				bufferCasiVacio = 0;
 			}
 				
 			insert_item(item);
 			
 			//Si el buffer esta casi lleno, produce mas lento
 			if(buffer[N] > N-3){
-				sl = 1;
+				bufferCasiVacio = 1;
 			}
 				
 			//Se libera la region critica
@@ -94,11 +94,11 @@ int main() {
 			//Se incrementa llenas
 			sem_post(llenas);
 				
-			if(sl == 0){
+			if(bufferCasiVacio == 0){
 				sleep(rand()%5);
 			}	
 			else{
-				sleep(rand()%17);
+				sleep(rand()%10);
 			}
 			
 			sleep(3);
