@@ -41,6 +41,9 @@ int main() {
     srand(time(NULL));
 
     //--------------- Inicialización de buffer1 y buffer2 ---------------//
+    
+    // Elimina el archivo existente para asegurar un inicio limpio
+	unlink("buffer1");
 
     // Inicialización y mapeo de buffer1 para producción
     fich1 = open("buffer1", O_RDWR|O_CREAT|O_TRUNC, S_IRWXU|S_IRWXG|S_IROTH);
@@ -70,7 +73,6 @@ int main() {
     //------------------ Producción y consumo de items ------------------//
 
     for (int i = 0; i < 100; i++) {
-        item = produce_item();
 
         sem_wait(vacias1); // Espera tener espacio en buffer1
         sem_wait(mutex1); // Espera acceso exclusivo a buffer1
@@ -82,7 +84,7 @@ int main() {
         sem_post(llenas1); // Indica que hay un nuevo item en buffer1
 
         // Simula tiempo de producción/consumo
-        sleep(rand() % 2 + 1); 
+        sleep(rand() % 5); 
 
         // Consumo de buffer2 (ajustar semáforos y buffer según corresponda)
         sem_wait(llenas2); // Espera que haya items en buffer2
@@ -93,7 +95,7 @@ int main() {
         sem_post(mutex2); // Libera acceso a buffer2
         sem_post(vacias2); // Indica que hay espacio en buffer2
 
-        sleep(rand() % 2 + 1);
+        sleep(rand() % 5);
     }
 
     //------------------ Liberación de recursos ------------------//

@@ -42,35 +42,37 @@ int main() {
 
     //--------------- Inicialización de buffer1 y buffer2 ---------------//
 
+    // Elimina el archivo existente para asegurar un inicio limpio
+	unlink("buffer2");
+
     // Inicialización y mapeo de buffer1 para producción
-    fich1 = open("buffer2", O_RDWR|O_CREAT|O_TRUNC, S_IRWXU|S_IRWXG|S_IROTH);
-    ftruncate(fich1, (N+1)*sizeof(int));
-    buffer1 = mmap(NULL, (N+1)*sizeof(int), PROT_WRITE|PROT_READ, MAP_SHARED, fich1, 0);
-    buffer1[N] = N - 1; // Inicializa el índice al final del buffer.
+    fich2 = open("buffer2", O_RDWR|O_CREAT|O_TRUNC, S_IRWXU|S_IRWXG|S_IROTH);
+    ftruncate(fich2, (N+1)*sizeof(int));
+    buffer2 = mmap(NULL, (N+1)*sizeof(int), PROT_WRITE|PROT_READ, MAP_SHARED, fich2, 0);
+    buffer2[N] = N - 1; // Inicializa el índice al final del buffer.
 
     // Inicialización y mapeo de buffer2 para consumo
-    fich2 = open("buffer1", O_RDWR);
-    buffer2 = mmap(NULL, (N+1)*sizeof(int), PROT_WRITE|PROT_READ, MAP_SHARED, fich2, 0);
+    fich1 = open("buffer1", O_RDWR);
+    buffer1 = mmap(NULL, (N+1)*sizeof(int), PROT_WRITE|PROT_READ, MAP_SHARED, fich1, 0);
     
     //------------------ Inicialización de semáforos ------------------//
 
-    // Semáforos para buffer1
-    sem_unlink("VACIAS1");
-    sem_unlink("LLENAS1");
-    sem_unlink("MUTEX1");
-    sem_t *vacias1 = sem_open("VACIAS1", O_CREAT, 0700, N);
-    sem_t *llenas1 = sem_open("LLENAS1", O_CREAT, 0700, 0);
-    sem_t *mutex1 = sem_open("MUTEX1", O_CREAT, 0700, 1);
-
     // Semáforos para buffer2
+    sem_unlink("VACIAS2");
+    sem_unlink("LLENAS2");
+    sem_unlink("MUTEX2");
     sem_t *vacias2 = sem_open("VACIAS2", O_CREAT, 0700, N);
     sem_t *llenas2 = sem_open("LLENAS2", O_CREAT, 0700, 0);
     sem_t *mutex2 = sem_open("MUTEX2", O_CREAT, 0700, 1);
 
+    // Semáforos para buffer1
+    sem_t *vacias1 = sem_open("VACIAS1", O_CREAT, 0700, N);
+    sem_t *llenas1 = sem_open("LLENAS1", O_CREAT, 0700, 0);
+    sem_t *mutex1 = sem_open("MUTEX1", O_CREAT, 0700, 1);
+
     //------------------ Producción y consumo de items ------------------//
 
     for (int i = 0; i < 100; i++) {
-        item = produce_item();
 
         sem_wait(vacias2); // Espera tener espacio en buffer1
         sem_wait(mutex2); // Espera acceso exclusivo a buffer1
@@ -82,7 +84,7 @@ int main() {
         sem_post(llenas2); // Indica que hay un nuevo item en buffer1
 
         // Simula tiempo de producción/consumo
-        sleep(rand() % 2 + 1); 
+        sleep(rand() % 5); 
 
         // Consumo de buffer2 
         sem_wait(llenas1); // Espera que haya items en buffer2        
@@ -93,7 +95,7 @@ int main() {
         sem_post(mutex1); // Libera acceso a buffer2
         sem_post(vacias1); // Indica que hay espacio en buffer2
 
-        sleep(rand() % 2 + 1);
+        sleep(rand() % 5);
     }
 
     //------------------ Liberación de recursos ------------------//
