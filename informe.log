@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  8 APR 2024 13:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.17)  10 APR 2024 17:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -287,13 +287,28 @@ Overfull \hbox (5.0pt too wide) in paragraph at lines 157--158
  [][] 
  []
 
-! Undefined control sequence.
-l.166 \lipsum
-             [7-8] % Texto de prueba
-? 
-[4
+<ejercicio5/productor5.jpg, id=30, 1365.1pt x 325.215pt>
+File: ejercicio5/productor5.jpg Graphic file (type jpg)
+<use ejercicio5/productor5.jpg>
+Package pdftex.def Info: ejercicio5/productor5.jpg  used on input line 172.
+(pdftex.def)             Requested size: 234.5pt x 55.86145pt.
 
- <./ejercicio4/productor2.jpg> <./ejercicio4/consumidor2.jpg>] (./informe.aux
+Overfull \hbox (5.0pt too wide) in paragraph at lines 172--173
+ [][] 
+ []
+
+<ejercicio5/consumidor5.jpg, id=31, 831.105pt x 204.765pt>
+File: ejercicio5/consumidor5.jpg Graphic file (type jpg)
+<use ejercicio5/consumidor5.jpg>
+Package pdftex.def Info: ejercicio5/consumidor5.jpg  used on input line 179.
+(pdftex.def)             Requested size: 234.5pt x 57.77435pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 179--180
+ [][] 
+ []
+
+[4 <./ejercicio4/productor2.jpg> <./ejercicio4/consumidor2.jpg> <./ejercicio5/p
+roductor5.jpg> <./ejercicio5/consumidor5.jpg>] (./informe.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -302,10 +317,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2868 strings out of 477476
- 48706 string characters out of 5824243
+ 2883 strings out of 477476
+ 49114 string characters out of 5824243
  1864388 words of memory out of 5000000
- 23108 multiletter control sequences out of 15000+600000
+ 23120 multiletter control sequences out of 15000+600000
  516402 words of font info for 46 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  57i,8n,62p,624b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -316,10 +331,10 @@ cm/cmr10.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr12.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr17.pfb></usr/local/texlive/2023basic/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmtt10.pfb>
-Output written on informe.pdf (4 pages, 990529 bytes).
+Output written on informe.pdf (4 pages, 1156780 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
+ 61 PDF objects out of 1000 (max. 8388607)
  29 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

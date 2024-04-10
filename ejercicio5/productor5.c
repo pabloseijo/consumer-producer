@@ -52,9 +52,18 @@ int main() {
     buffer2[N] = N - 1; // Inicializa el índice al final del buffer.
 
     // Inicialización y mapeo de buffer2 para consumo
-    fich1 = open("buffer1", O_RDWR);
-    buffer1 = mmap(NULL, (N+1)*sizeof(int), PROT_WRITE|PROT_READ, MAP_SHARED, fich1, 0);
+    // Apertura o creación del archivo del buffer
+    if ((fich1 = open("buffer1", O_RDWR | O_CREAT, S_IRWXU)) == -1) {
+        perror("ERROR: open");
+        exit(EXIT_FAILURE);
+    }
     
+    // Mapeo del archivo del buffer en memoria
+    buffer1 = mmap(NULL, (N + 1) * sizeof(int), PROT_WRITE | PROT_READ, MAP_SHARED, fich1, 0);
+    if (buffer1 == MAP_FAILED) {
+        perror("ERROR: mmap");
+        exit(EXIT_FAILURE);
+    }
     //------------------ Inicialización de semáforos ------------------//
 
     // Semáforos para buffer2

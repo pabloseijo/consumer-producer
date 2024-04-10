@@ -162,7 +162,25 @@ nConsumidor.c con dos consumidores:
 En las imagenes podemos ver que se han creado dos productores y dos consumidores, y que el buffer se ha llenado y vaciado correctamente. Se podría gestionar mediante sleeps la velocidad de producción y de consumo de los elementos, y de hecho, en el código implementamos una desaceleración tal que si el buffer está casi lleno el productor pasa de un rand entre 0 y 4 a un rand entre 0 y 9. 
 
 Esta funcionalidad nos permite decrementar la velocidad de producción para que los consumidores puedan consumir los elementos antes de que el buffer se llene.
-\section{Conclusiones}
-\lipsum[7-8] % Texto de prueba
+
+\section{Ejercicio 5}
+
+En este ejercicio se nos plantea hacer dos códigos los cuales funcionen de consumidores y productores a la vez (en dos buffers distintos). La salida del programa es la siguiente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ejercicio5/productor5.jpg}
+    \caption{Salida del programa} 
+    \label{fig:my_label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ejercicio5/consumidor5.jpg}
+    \caption{Salida del programa} 
+    \label{fig:my_label}
+\end{figure}
+
+Cabe destacar que el programa nos da problemas y no siempre se ejecuta correctamente, es decir, depende de las condiciones de inicio el deadlock se produce antes o después (aunque siempre se acaba produciendo). Es decir el código nos acaba en deadlocks despues de ciertas interacciones. La ejecución anterior se produce bajo las condiciones de que se ejecute el consumidor antes que el productor.
 
 \end{document}
